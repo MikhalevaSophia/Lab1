@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Runtime;
+
+namespace lab1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("The smallest Int" + Int32.MinValue);
+            Console.WriteLine("The biggest Int" + Int32.MaxValue);
+            Console.WriteLine("The smallest Uint" + UInt32.MinValue);
+            Console.WriteLine("The biggest Uint" + UInt32.MaxValue);
+            Console.WriteLine("The smallest Double" + Double.MinValue);
+            Console.WriteLine("The biggest Double" + Double.MaxValue);
+            Console.WriteLine("The smallest Float" + float.MinValue);
+            Console.WriteLine("The biggest Float" + float.MaxValue);
+            Console.WriteLine("The smallest Decimal" + Decimal.MinValue);
+            Console.WriteLine("The biggest Decimal" + Decimal.MaxValue);
+            Console.WriteLine("The smallest Long" + long.MinValue);
+            Console.WriteLine("The biggest Long" + long.MaxValue);
+            Console.WriteLine("The smallest Ulong" + ulong.MinValue);
+            Console.WriteLine("The biggest Ulong" + ulong.MaxValue);
+            Console.WriteLine("The smallest Short" + short.MinValue);
+            Console.WriteLine("The biggest Short" + short.MaxValue);
+            Console.WriteLine("The smallest Ushort" + ushort.MinValue);
+            Console.WriteLine("The biggest Ushort" + ushort.MaxValue);
+            Console.WriteLine("The smallest Byte" + Byte.MinValue);
+            Console.WriteLine("The biggest Byte" + Byte.MaxValue);
+            Console.WriteLine("The smallest Sbyte" + SByte.MinValue);
+            Console.WriteLine("The biggest Sbyte" + SByte.MaxValue);
+            Console.WriteLine("The biggest Long" + long.MaxValue);
+            Console.WriteLine("The smallest Ulong" + ulong.MinValue);
+            Console.WriteLine("The biggest Ulong" + ulong.MaxValue);
+            bool no = false;
+            bool yes = true;
+            Console.Write("The smallest Bool ");
+            Console.WriteLine(no);
+            Console.Write("The biggest Bool ");
+            Console.WriteLine(yes);
+        }
+    }
+}
