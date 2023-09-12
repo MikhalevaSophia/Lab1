@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab1_task3
+{
+
+
+    public class Point
+    {
+        private double x, y;
+        public double X => x;
+        public double Y => y;
+        public Point(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+    }
+    public class Figure
+    {
+        private List<Point> points = new List<Point>();
+        public Figure(params Point[] po)
+        {
+            points = new List<Point>();
+            for (int i = 0; i < po.Length; i++)
+            {
+                points.Add(new Point(po[i].X, po[i].Y));
+            }
+        }
+        private static double LengthSide(Point A, Point B) => Math.Sqrt((A.X - B.X) * (A.X - B.X) + (A.Y - B.Y) * (A.Y - B.Y));
+        private double PerimeterCalculator(List<Point> points)
+        {
+            double perimeter = 0;
+            for (int i = 0; i < points.Count - 1; i++)
+            {
+                perimeter += LengthSide(points[i], points[i + 1]);
+            }
+            perimeter += LengthSide(points[0], points[points.Count - 1]);
+            return perimeter;
+        }
+        public double Perimeter { get { return PerimeterCalculator(this.points); } }
+        
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string? input = null;
+
+            Console.WriteLine("Как называется фигура?");
+            input = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(input)) { return; }
+            string figureName = input;
+
+            int pointsAmount = 0;
+            Console.WriteLine("Введите количетсво точек: ");
+            input = Console.ReadLine();
+            if (string.IsNullOrEmpty(input)) { return; }
+
+            if (!int.TryParse(input, out pointsAmount) || pointsAmount >= 5 && pointsAmount <= 3) { return; }
+
+            List<Point> points = new List<Point>();
+            for (byte i = 0; i < pointsAmount; i++)
+            {
+                Console.WriteLine("Введите координаты точек в формате: х у");
+                input = Console.ReadLine();
+                if (string.IsNullOrEmpty(input)) return;
+                points.Add(new Point(int.Parse(input.Split(" ")[0]), (int.Parse(input.Split(" ")[1]))));
+            }
+            Figure f;
+            if (pointsAmount == 3)
+            {
+                f = new Figure(points[0], points[1], points[2]);
+            }
+            else if (pointsAmount == 4)
+            {
+                f = new Figure(points[0], points[1], points[2], points[3]);
+            }
+            else
+            {
+                f = new Figure(points[0], points[1], points[2], points[3], points[4]);
+            }
+            Console.WriteLine($"Многоугольник {figureName} имеет периметр равный {f.Perimeter:.##}");
+        }
+    }
+}
